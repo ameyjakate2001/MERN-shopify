@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none !important;
+}
+main {
+  min-height: 70vh;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.fa-star,
+.fa-star-half-alt {
+  color: rgb(223, 223, 130);
+}
