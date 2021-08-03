@@ -8,8 +8,8 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 
 const ProductScreen = ({ match }) => {
-   let history = useHistory()
-  const [qty, setQty] = useState(0)
+  let history = useHistory()
+  const [qty, setQty] = useState(1)
   const dispatch = useDispatch()
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
@@ -19,9 +19,9 @@ const ProductScreen = ({ match }) => {
     dispatch(listProductDetails(match.params.id))
   }, [dispatch, match])
 
-   const addToCartHandler = () => {
-     history.push(`/cart/${match.params.id}?qty=${qty}`)
-   }
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?qty=${qty}`)
+  }
 
   return (
     <>
@@ -80,12 +80,16 @@ const ProductScreen = ({ match }) => {
                     <Row>
                       <Col>Qty</Col>
                       <Col>
-                        <Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
-                          {
-                            [...Array(product.countInStock).keys()].map((x) => (
-                              <option key={x + 1} value= {x + 1}>{ x + 1}</option>
-                            ))
-                         }
+                        <Form.Control
+                          as='select'
+                          value={qty}
+                          onChange={(e) => setQty(e.target.value)}
+                        >
+                          {[...Array(product.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
                         </Form.Control>
                       </Col>
                     </Row>
