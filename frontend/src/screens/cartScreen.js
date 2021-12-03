@@ -46,7 +46,7 @@ const CartScreen = ({ match, history, location }) => {
                     <Image src={item.image} fluid rounded></Image>
                   </Col>
                   <Col md={3}>
-                    <Link to={`/products/${item.product}`}>{item.name}</Link>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
                   <Col md={2}>${item.price}</Col>
                   <Col md={2}>
@@ -70,7 +70,7 @@ const CartScreen = ({ match, history, location }) => {
                     <Button
                       type='button'
                       variant='light'
-                      onClick={removeFromCartHandler(item.product)}
+                      onClick={()=> removeFromCartHandler(item.product)}
                     >
                       <i className='fas fa-trash'></i>
                     </Button>

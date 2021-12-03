@@ -12,6 +12,7 @@ const HomeScreen = () => {
     dispatch(productList())
   }, [dispatch])
   const { loading, error, products } = useSelector((state) => state.productList)
+  console.log(products);
 
   return (
     <>
